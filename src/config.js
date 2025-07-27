@@ -1,5 +1,6 @@
 export const WMS_TILE_SIZE = 512; // px
 export const TILEGRID_ORIGIN = [2420000, 1350000]; // in EPSG:2056
+
 // resolutions in meter/pixel
 export const TILEGRID_RESOLUTIONS = [
   4000,

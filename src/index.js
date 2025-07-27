@@ -1,10 +1,7 @@
-//import "./styles.css";
-//import "../node_modules/ol/ol.css";
-
-import { Map, View } from "../node_modules/ol/index.js";
-import { Tile as TileLayer } from "../node_modules/ol/layer.js";
-import { XYZ } from "../node_modules/ol/source.js";
-import { defaults as defaultControls, ScaleLine } from "../node_modules/ol/control.js";
+import { Map, View } from "../3rdparty/openlayers/src/ol/index.js";
+import { Tile as TileLayer } from "../3rdparty/openlayers/src/ol/layer.js";
+import { XYZ } from "../3rdparty/openlayers/src/ol/source.js";
+import { defaults as defaultControls, ScaleLine } from "../3rdparty/openlayers/src/ol/control.js";
 
 const backgroundLayer = new TileLayer({
   id: "background-layer",
