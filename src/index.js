@@ -9,7 +9,14 @@ import locations from './locations.js';
 const backgroundLayer = new TileLayer({
   id: 'background-layer',
   source: new XYZ({
-    url: `https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.pixelkarte-farbe/default/current/3857/{z}/{x}/{y}.jpeg`
+    url: 'https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.pixelkarte-farbe/default/current/3857/{z}/{x}/{y}.jpeg'
+  })
+});
+
+const swissimageLayer = new TileLayer({
+  id: 'swissimage-layer',
+  source: new XYZ({
+    url: 'https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.swissimage/default/current/3857/{z}/{x}/{y}.jpeg'
   })
 });
 
@@ -18,7 +25,7 @@ const view = new View({ projection: 'EPSG:3857', center: locations.zuhause, zoom
 const map = new Map({
   target: 'map',
   controls: defaultControls().extend([new ScaleLine({ units: 'metric' })]),
-  layers: [backgroundLayer],
+  layers: [swissimageLayer, backgroundLayer],
   view
 });
 
