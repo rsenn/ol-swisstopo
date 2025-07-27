@@ -19,29 +19,11 @@ const locations = Hash({
   glasbrunnen: LatLon(46.96186208844483, 7.411693012341456)
 });
 
-const backgroundLayer = new TileLayer({
-  id: 'background-layer',
-  source: new XYZ({
-    url: `https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.pixelkarte-farbe/default/current/3857/{z}/{x}/{y}.jpeg`
-  })
-});
+const backgroundLayer = new TileLayer({ id: 'background-layer', source: new XYZ({ url: `https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.pixelkarte-farbe/default/current/3857/{z}/{x}/{y}.jpeg` }) });
 
-const view = new View({
-  projection: 'EPSG:3857',
-  center: locations.zuhause,
-  zoom: 16
-});
+const view = new View({ projection: 'EPSG:3857', center: locations.zuhause, zoom: 16 });
 
-const map = new Map({
-  target: 'map',
-  controls: defaultControls().extend([
-    new ScaleLine({
-      units: 'metric'
-    })
-  ]),
-  layers: [backgroundLayer],
-  view
-});
+const map = new Map({ target: 'map', controls: defaultControls().extend([new ScaleLine({ units: 'metric' })]), layers: [backgroundLayer], view });
 
 Properties(globalThis, {
   zoom: [() => view.getZoom(), v => view.setZoom(v)],
@@ -51,30 +33,9 @@ Properties(globalThis, {
   center: [() => view.getCenter(), v => view.setCenter(v)]
 });
 
-const ol = {
-  Map,
-  View,
-  TileLayer,
-  XYZ,
-  defaultControls,
-  ScaleLine,
-  fromLonLat,
-  addCoordinateTransforms,
-  addProjection,
-  transform
-};
+const ol = { Map, View, TileLayer, XYZ, defaultControls, ScaleLine, fromLonLat, addCoordinateTransforms, addProjection, transform };
 
-Object.assign(globalThis, {
-  ol,
-  view,
-  map,
-  backgroundLayer,
-  LatLon,
-  locations,
-  trkl,
-  getset,
-  gettersetter
-});
+Object.assign(globalThis, { ol, view, map, backgroundLayer, LatLon, locations, trkl, getset, gettersetter });
 
 function Hash(obj) {
   return Object.setPrototypeOf(obj, null);
