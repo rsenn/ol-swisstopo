@@ -4,11 +4,19 @@ import { XYZ } from '../3rdparty/openlayers/src/ol/source.js';
 import { defaults as defaultControls, ScaleLine } from '../3rdparty/openlayers/src/ol/control.js';
 import { fromLonLat, addCoordinateTransforms, addProjection, transform } from '../3rdparty/openlayers/src/ol/proj.js';
 import trkl from '../lib/trkl.js';
+import { getset, gettersetter } from '../lib/misc.js';
 
 const locations = Hash({
-  buehl: Coordinate(46.77558, 7.35901),
-  eigerplatz: Coordinate(46.94121, 7.43125),
-  zuhause: Coordinate(46.96482, 7.45433)
+  buehl: LatLon(46.77558, 7.35901),
+  eigerplatz: LatLon(46.94121, 7.43125),
+  zuhause: LatLon(46.96482, 7.45433),
+  chasseral: LatLon(47.1332, 7.06032),
+  bantiger: LatLon(46.97771, 7.52866),
+  felsenausteg: LatLon(46.96552, 7.44496),
+  botanischergarten: LatLon(46.95302, 7.44489),
+  ulmizberg: LatLon(46.90036, 7.43421),
+  hinterkappelen: LatLon(46.96787, 7.3774),
+  glasbrunnen: LatLon(46.96186208844483, 7.411693012341456)
 });
 
 const backgroundLayer = new TileLayer({
@@ -36,11 +44,11 @@ const map = new Map({
 });
 
 Properties(globalThis, {
-  zoom: [() => view.getZoom(), (value) => view.setZoom(value)],
-  rotation: [() => view.getRotation(), (value) => view.setRotation(value)],
-  resolution: [() => view.getResolution(), (value) => view.setResolution(value)],
+  zoom: [() => view.getZoom(), v => view.setZoom(v)],
+  rotation: [() => view.getRotation(), v => view.setRotation(v)],
+  resolution: [() => view.getResolution(), v => view.setResolution(v)],
   projection: [() => view.getProjection()],
-  center: [() => view.getCenter(), (value) => view.setCenter(value)]
+  center: [() => view.getCenter(), v => view.setCenter(v)]
 });
 
 const ol = {
@@ -61,24 +69,26 @@ Object.assign(globalThis, {
   view,
   map,
   backgroundLayer,
-  Coordinate,
+  LatLon,
   locations,
-  trkl
+  trkl,
+  getset,
+  gettersetter
 });
 
 function Hash(obj) {
   return Object.setPrototypeOf(obj, null);
 }
 
-function Coordinate(lat, lon) {
+function LatLon(lat, lon) {
   return fromLonLat([lon, lat]);
 }
 
 function Properties(obj, props) {
   const desc = {};
   for (let key in props) {
-    const [get, set] = props[key];
-    desc[key] = { get, set, configurable: true };
+    const fn = gettersetter(props[key]);
+    desc[key] = { get: fn, set: fn, configurable: true };
   }
   return Object.defineProperties(obj, desc);
 }
