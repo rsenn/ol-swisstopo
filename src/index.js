@@ -2,10 +2,9 @@ import { Map, View } from '../3rdparty/openlayers/src/ol/index.js';
 import { Tile as TileLayer } from '../3rdparty/openlayers/src/ol/layer.js';
 import { XYZ } from '../3rdparty/openlayers/src/ol/source.js';
 import { defaults as defaultControls, ScaleLine } from '../3rdparty/openlayers/src/ol/control.js';
-import {  addCoordinateTransforms, addProjection, transform } from '../3rdparty/openlayers/src/ol/proj.js';
-import { getset, gettersetter } from '../lib/misc.js';
-import { Hash, LatLon, Properties } from './utils.js'
-import locations from './locations.js'
+import { addCoordinateTransforms, addProjection, transform } from '../3rdparty/openlayers/src/ol/proj.js';
+import { Hash, LatLon, Properties } from './utils.js';
+import locations from './locations.js';
 
 const backgroundLayer = new TileLayer({
   id: 'background-layer',
@@ -30,18 +29,7 @@ Properties(globalThis, {
   projection: [() => view.getProjection()],
   center: [() => view.getCenter(), v => view.setCenter(v)]
 });
- 
-const ol = {
-  Map,
-  View,
-  TileLayer,
-  XYZ,
-  defaultControls,
-  ScaleLine,
-  fromLonLat,
-  addCoordinateTransforms,
-  addProjection,
-  transform
-};
 
-Object.assign(globalThis, { ol, view, map, backgroundLayer, LatLon, locations, getset, gettersetter });
+const ol = { Map, View, TileLayer, XYZ, defaultControls, ScaleLine, addCoordinateTransforms, addProjection, transform };
+
+Object.assign(globalThis, { ol, view, map, backgroundLayer, LatLon, Hash, Properties, locations });

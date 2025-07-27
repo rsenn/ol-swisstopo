@@ -1,4 +1,4 @@
-import { Hash ,LatLon } from './utils.js';
+import { Hash, LatLon } from './utils.js';
 
 export default Hash({
   allmend: LatLon(46.96298, 7.47244),

@@ -1,4 +1,5 @@
 import { fromLonLat, transform } from '../3rdparty/openlayers/src/ol/proj.js';
+import { gettersetter } from '../lib/misc.js';
 
 export function Hash(obj) {
   return Object.setPrototypeOf(obj, null);
