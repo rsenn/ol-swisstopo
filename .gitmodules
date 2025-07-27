@@ -13,3 +13,6 @@
 [submodule "3rdparty/maplibre-style-spec"]
 	path = 3rdparty/maplibre-style-spec
 	url = git@github.com:rsenn/maplibre-style-spec.git
+[submodule "lib"]
+	path = lib
+	url = git@github.com:rsenn/libweb.git

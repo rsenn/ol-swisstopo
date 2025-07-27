@@ -124,7 +124,7 @@
 	},
 	"expanded_folders":
 	[
-		"/var/www/html/ol-st"
+		"/var/www/html/ol-swisstopo"
 	],
 	"file_history":
 	[
@@ -259,7 +259,7 @@
 	],
 	"find":
 	{
-		"height": 26.0
+		"height": 25.0
 	},
 	"find_in_files":
 	{
@@ -299,7 +299,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 26.0
+		"height": 25.0
 	},
 	"input":
 	{
@@ -336,7 +336,7 @@
 	"project": "ol-swisstopo.sublime-project",
 	"replace":
 	{
-		"height": 48.0
+		"height": 46.0
 	},
 	"save_all_on_build": false,
 	"select_file":
