@@ -1,0 +1,15 @@
+[submodule "3rdparty/rbush"]
+	path = 3rdparty/rbush
+	url = git@github.com:rsenn/rbush.git
+[submodule "3rdparty/quickselect"]
+	path = 3rdparty/quickselect
+	url = git@github.com:rsenn/quickselect.git
+[submodule "3rdparty/pbf"]
+	path = 3rdparty/pbf
+	url = git@github.com:rsenn/pbf.git
+[submodule "3rdparty/ol-mapbox-style"]
+	path = 3rdparty/ol-mapbox-style
+	url = git@github.com:rsenn/ol-mapbox-style.git
+[submodule "3rdparty/maplibre-style-spec"]
+	path = 3rdparty/maplibre-style-spec
+	url = git@github.com:rsenn/maplibre-style-spec.git
