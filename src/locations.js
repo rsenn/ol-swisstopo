@@ -20,5 +20,5 @@ export default Hash({
   ulmizberg: LatLon(46.90036, 7.43421),
   wylerbad: LatLon(46.96622, 7.45284),
   zarbar: LatLon(46.94141, 7.42546),
-  zuhause: LatLon(46.96482, 7.45433)
+  zuhause: LatLon(46.96482, 7.45433),
 });
